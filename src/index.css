@@ -1,0 +1,277 @@
+/* /src/index.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- 네비게이션 --- */
+.main-nav {
+  width: 200px;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+}
+.main-nav h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+.main-nav a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.main-nav a:hover {
+  background-color: #333;
+}
+.main-nav a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 30px;
+}
+
+.error-msg {
+  color: #d93025;
+  background-color: #fce8e6;
+  border: 1px solid #d93025;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* --- 검색 폼 & 정렬 --- */
+.search-form {
+  margin-bottom: 20px;
+}
+.search-form input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.search-form button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.sort-controls {
+  margin-bottom: 20px;
+}
+.sort-controls select {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+
+/* --- 대시보드 테이블 --- */
+.video-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden; /*
+  border-radius 적용을 위해 */
+}
+.video-table th, .video-table td {
+  border-bottom: 1px solid #eee;
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: middle; /* 중앙 정렬 */
+  font-size: 0.9rem;
+}
+.video-table th {
+  background-color: #fcfcfc;
+  color: #555;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* --- 순위 뱃지 (요청 3) --- */
+.rank-badge {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%; /* 원형 뱃지 */
+  font-weight: bold;
+  color: white;
+  background-color: #a0aec0; /* 6등 이하 (회색) */
+}
+/* 1~5등 명암 차이 */
+.rank-1 { background-color: #e53e3e; } /* 1. 진한 빨강 */
+.rank-2 { background-color: #ed64a6; } /* 2. 핑크 */
+.rank-3 { background-color: #4299e1; } /* 3. 파랑 */
+.rank-4 { background-color: #68d391; } /* 4. 초록 */
+.rank-5 { background-color: #f6ad55; } /* 5. 주황 */
+
+/* --- 키워드 뱃지 (요청 3) --- */
+.keyword-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #edf2f7;
+  color: #2d3748;
+  border-radius: 16px; /* 알약 형태 */
+  font-weight: 500;
+}
+
+/* --- 근거 Vid (요청 5) --- */
+.video-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #1a202c;
+}
+.video-link:hover p {
+  color: #007bff;
+}
+.video-link img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.video-link p {
+  margin-left: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  /* 3줄 말줄임 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* --- 관련 Vid (요청 4, 5) --- */
+.action-button {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.action-button:disabled {
+  background-color: #ccc;
+}
+.related-vids {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2x2 그리드 */
+  gap: 8px;
+  margin-top: 10px;
+}
+.related-vid-item {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform 0.2s;
+}
+.related-vid-item:hover {
+  transform: scale(1.05);
+  border-color: #007bff;
+}
+.related-thumbnail {
+  width: 100px; /* 썸네일 크기 (요청) */
+  height: 75px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- 스크립트 (요청 5) --- */
+.video-table textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
+.video-table img {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.video-table td:nth-child(1) { width: 5%; }
+.video-table td:nth-child(2) { width: 10%; }
+.video-table td:nth-child(3) { width: 10%; }
+.video-table td:nth-child(4) { width: 25%; } /* 근거 Vid */
+.video-table td:nth-child(5) { width: 25%; } /* 관련 Vid */
+.video-table td:nth-child(6) { width: 25%; } /* 스크립트 */
+
+.related-vids { display: flex; flex-wrap: wrap; gap: 5px; }
+.related-vid-item { cursor: pointer; border: 2px solid transparent; padding: 5px; }
+.related-vid-item.selected { border-color: #007bff; }
+.related-vid-item img { width: 100px; height: 75px; }
+.related-vid-item p { font-size: 0.8rem; margin: 0; }
+.video-table textarea { width: 100%; height: 100px; margin-top: 10px; }
+
+
+/* --- 검색 그리드 --- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.video-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s;
+}
+.video-card:hover {
+  transform: translateY(-5px);
+}
+.video-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.video-card-info {
+  padding: 15px;
+}
+.video-card-info h3 {
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+  height: 2.6em; /* 2줄 말줄임 */
+  overflow: hidden;
+}
+.video-card-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.vpi-score {
+  font-weight: bold;
+  color: #d93025;
+}
