@@ -11,11 +11,11 @@ export default function DashboardPage() {
   
   // (신규) 필터 옵션 상태
   const [availableData, setAvailableData] = useState([]); // [{ id, time, region, label }, ...]
-  const [regions, setRegions] = useState([]); // ["KR", "US", "IN", ...]
+  const [regions, setRegions] = useState([""]); // ["KR", "US", "IN", ...]
   
   // (신규) 선택된 필터 상태
   const [selectedTime, setSelectedTime] = useState('');
-  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('KR');
   const [sort, setSort] = useState({ sortBy: 'vpi', order: 'desc' });
 
   // 1. (최초 1회) 필터 목록을 불러옵니다.
@@ -36,7 +36,7 @@ export default function DashboardPage() {
         
         // (기본값) 최신 데이터(index 0)로 필터 설정
         setSelectedTime(data[0].time);
-        setSelectedRegion(data[0].region);
+        // setSelectedRegion(data[0].region);
       })
       .catch(err => setError(err.message));
   }, []);
@@ -92,7 +92,6 @@ export default function DashboardPage() {
       {error && <p className="error-msg">{error}</p>}
       
       <VideoTable videos={videos} />
-      <p>안녕하세요</p>
     </div>
   );
 }
