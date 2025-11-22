@@ -7,28 +7,36 @@ body {
 
 .app-container {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
 /* --- 네비게이션 --- */
 .main-nav {
-  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
   background-color: #1a1a1a;
   color: white;
-  padding: 20px;
+  padding: 20px 30px;
   flex-shrink: 0;
 }
 .main-nav h1 {
   font-size: 1.5rem;
-  margin-top: 0;
+  margin: 0;
+}
+#title{
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
 }
 .main-nav a {
   display: block;
   color: #ccc;
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 5px 8px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .main-nav a:hover {
   background-color: #333;
@@ -37,6 +45,11 @@ body {
   background-color: #007bff;
   color: white;
 }
+#PageTab{
+  display: flex;
+  gap: 8px;
+}
+
 
 .content {
   flex-grow: 1;
@@ -50,6 +63,7 @@ body {
   padding: 10px;
   border-radius: 5px;
 }
+
 
 /* --- 검색 폼 & 정렬 --- */
 .search-form {
@@ -72,12 +86,15 @@ body {
   cursor: pointer;
   margin-left: 10px;
 }
+.sortingHeader {
+  display: flex;
+}
 .sort-controls {
   margin-bottom: 20px;
 }
 .sort-controls select {
   padding: 8px;
-  margin-right: 10px;
+  margin-right: 20px;
   border-radius: 5px;
 }
 
@@ -105,6 +122,13 @@ body {
   font-weight: 600;
   white-space: nowrap;
 }
+/* 관련 Vid 열: 너무 쪼그라들지 않게 최소 폭만 보장 */
+.video-table th:nth-child(7),
+.video-table td:nth-child(7) {
+  min-width: 220px;   /* 숫자는 상황 보고 조절 */
+}
+
+
 
 /* --- 순위 뱃지 (요청 3) --- */
 .rank-badge {

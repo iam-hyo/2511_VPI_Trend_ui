@@ -43,11 +43,11 @@ export const searchVideos = (keyword) => {
 /**
  * [Spec 5.4] 스크립트 생성
  */
-export const generateScript = (videoIds, query) => {
+export const generateScript = (videos, query) => {
   return fetchApi('/generate-script', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ videoIds, query }),
+    headers: { 'Content-Type': 'application/json' }, // 보낸값
+    body: JSON.stringify({ videos, query }),       // 보낸 실제 값
   });
 };
 
